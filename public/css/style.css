@@ -1,0 +1,70 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+div {
+    border: 1px dotted;
+}
+
+/*Welcome Page Styling*/
+
+
+.welcome-header {
+    height: 80px;
+}
+
+.welcome-header nav {
+    text-align: center;
+    line-height: 80px;
+}
+
+.welcome-header nav a:first-child {
+    float: left;
+}
+
+.welcome-header nav a:last-child {
+    float: right;
+}
+
+.welcome-wrapper-one {
+    height: 650px;
+}
+
+.welcome-wrapper-two {
+    height: 500px;
+    padding: 0;
+}
+
+#tri-div-wrapper {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.tri-div {
+    height: 100%;
+    width: 33%;
+    display: inline-block;
+    margin: 0;
+}
+
+.welcome-about-wrapper {
+    height: 400px;
+}
+
+.welcome-wrapper-three {
+    height: 400px;
+    padding: 0;
+}
+
+.lang-div {
+    height: 100%;
+    width: 49%;
+    display: inline-block;
+}
+
+.welcome-wrapper-four {
+    height: 400px;
+}
+
