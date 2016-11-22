@@ -3,20 +3,28 @@ body {
     margin: 0;
 }
 
-div {
-    border: 1px dotted;
-}
+
 
 /*Welcome Page Styling*/
 
 
 .welcome-header {
     height: 80px;
+    background-color: black;
+    -webkit-transition: background-color .7s;
+    transition: background-color .7s;
 }
 
 .welcome-header nav {
     text-align: center;
     line-height: 80px;
+}
+
+.welcome-header nav a {
+    color: white;
+    font-size: 1.3em;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .welcome-header nav a:first-child {
@@ -28,30 +36,99 @@ div {
 }
 
 .welcome-wrapper-one {
-    height: 650px;
+    height: 100vh;
+    background-image: url("../images/welcome-bg.jpg");
+    background-size: cover;
 }
 
+#welcome-name-wrapper {
+    margin-top: 450px;
+}
+
+#welcome-name-wrapper ul li {
+    color: white;
+    opacity: .7;
+    display: inline;
+    font-size: 2em;
+    margin-left: 5px;
+    margin-right: 5px;
+    -webkit-transition: opacity .5s;
+    transition: opacity .5s;
+}
+
+#welcome-name-wrapper ul li:hover {
+    opacity: 1;
+}
+
+#welcome-name-wrapper h1 {
+    color: white;
+}
+
+#welcome-name-wrapper h2 {
+    color: white;
+}
 .welcome-wrapper-two {
     height: 500px;
     padding: 0;
 }
 
-#tri-div-wrapper {
+.welcome-wrapper-two {
+    height: 500px;
+}
+
+#dual-div-wrapper {
     height: 100%;
     width: 100%;
-    margin: 0 auto;
 }
 
-.tri-div {
+.dual-div {
     height: 100%;
-    width: 33%;
+    width: 49%;
+
     display: inline-block;
-    margin: 0;
+    vertical-align: top;
+    margin: 0 auto;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
 }
 
-.welcome-about-wrapper {
-    height: 400px;
+.dual-div:hover {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
 }
+
+#left-dual-div {
+    background-image: url("../images/color-chalk.jpg");
+    background-size: cover;
+}
+
+#right-dual-div {
+    background-image: url("../images/broken-chalk.jpg");
+    background-size: cover;
+}
+
+.dual-div h2 {
+    font-size: 4em;
+    color: white;
+    background-color: black;
+    width: 100%;
+    text-align: center;
+    margin-top: 55%;
+}
+.welcome-about-wrapper {
+    height: 100vh;
+    background-image: url("../images/coffee-cup.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.welcome-picture-wrapper {
+    height: 100vh;
+    background-image: url("../images/mac.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 
 .welcome-wrapper-three {
     height: 400px;
@@ -65,6 +142,18 @@ div {
 }
 
 .welcome-wrapper-four {
-    height: 400px;
+    height: 500px;
+    background-color: black;
 }
+
+#welcome-schedule-wrapper {
+    text-align: center;
+}
+
+#welcome-schedule-wrapper h2 {
+    color: white;
+}
+
+
+
 
