@@ -19,6 +19,10 @@ body {
     transition: background-color .7s;
 }
 
+.welcome-header span {
+    font-size: 2.3em;
+}
+
 .welcome-header nav {
     text-align: center;
     line-height: 80px;
@@ -58,18 +62,25 @@ body {
     margin-top: 45px;
 }
 
-#welcome-name-wrapper ul li {
+#welcome-name-wrapper ul li a {
     color: white;
     opacity: .8;
+    -webkit-transition: opacity .5s;
+    transition: opacity .5s;
+}
+#welcome-name-wrapper ul li{
+
+
     display: inline;
     font-size: 2.3em;
     margin-left: 10px;
     margin-right: 10px;
-    -webkit-transition: opacity .5s;
-    transition: opacity .5s;
+
 }
 
-#welcome-name-wrapper ul li:hover {
+
+
+#welcome-name-wrapper ul li a:hover {
     opacity: 1;
 }
 
@@ -216,6 +227,10 @@ body {
 
 .contact-header {
     height: 80px;
+}
+
+.contact-header span {
+    font-size: 2.3em;
 }
 
 .contact-header nav {

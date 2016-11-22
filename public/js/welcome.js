@@ -39,4 +39,12 @@ app.controller('welcomeController', function($scope) {
         $('#right-dual-div p').fadeOut();
 
     })
+
+
+
+
+
+    $scope.goToContact = function() {
+        window.location.assign('#/contact');
+    }
 })
