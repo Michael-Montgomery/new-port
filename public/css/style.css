@@ -3,6 +3,10 @@ body {
     margin: 0;
 }
 
+* {
+    font-family: 'Poiret One', cursive;
+}
+
 
 
 /*Welcome Page Styling*/
@@ -22,18 +26,22 @@ body {
 
 .welcome-header nav a {
     color: white;
-    font-size: 1.3em;
+    font-size: 1.9em;
     margin-left: 10px;
     margin-right: 10px;
+    -webkit-transition: color .4s;
+    transition: color .4s;
+}
+
+.welcome-header nav a:hover {
+    color: red;
+    text-decoration: none;
 }
 
 .welcome-header nav a:first-child {
     float: left;
 }
 
-.welcome-header nav a:last-child {
-    float: right;
-}
 
 .welcome-wrapper-one {
     height: 100vh;
@@ -43,15 +51,21 @@ body {
 
 #welcome-name-wrapper {
     margin-top: 450px;
+    width: 50%;
+    text-align: center;
+}
+
+#welcome-name-wrapper ul {
+    margin-top: 45px;
 }
 
 #welcome-name-wrapper ul li {
     color: white;
-    opacity: .7;
+    opacity: .8;
     display: inline;
-    font-size: 2em;
-    margin-left: 5px;
-    margin-right: 5px;
+    font-size: 2.3em;
+    margin-left: 10px;
+    margin-right: 10px;
     -webkit-transition: opacity .5s;
     transition: opacity .5s;
 }
@@ -62,10 +76,12 @@ body {
 
 #welcome-name-wrapper h1 {
     color: white;
+    font-size: 4.5em;
 }
 
 #welcome-name-wrapper h2 {
     color: white;
+    font-size: 1.5em;
 }
 .welcome-wrapper-two {
     height: 500px;
@@ -73,9 +89,12 @@ body {
 }
 
 .welcome-wrapper-two {
-    height: 500px;
+    height: 600px;
 }
 
+.test-div {
+    background-color: black;
+}
 #dual-div-wrapper {
     height: 100%;
     width: 100%;
@@ -84,6 +103,8 @@ body {
 .dual-div {
     height: 100%;
     width: 49%;
+    -webkit-transition: width .7s;
+    transition: width .7s;
 
     display: inline-block;
     vertical-align: top;
@@ -108,12 +129,22 @@ body {
 }
 
 .dual-div h2 {
-    font-size: 4em;
+    font-size: 6em;
     color: white;
     background-color: black;
     width: 100%;
     text-align: center;
     margin-top: 55%;
+}
+
+.dual-div p {
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin-top: 275px;
+    font-size: 5em;
+    width: 80%;
+    display: none;
 }
 .welcome-about-wrapper {
     height: 100vh;
@@ -148,12 +179,34 @@ body {
 
 #welcome-schedule-wrapper {
     text-align: center;
+    margin-top: 175px;
 }
 
 #welcome-schedule-wrapper h2 {
     color: white;
 }
 
+#welcome-schedule-wrapper button {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    font-size: 2em;
+    margin-top: 35px;
+    padding: 10px;
+    outline: none;
+    -webkit-transition: font-size .2s;
+    transition: font-size .2s;
+}
 
+#welcome-schedule-wrapper button:hover {
+    font-size: 2.2em;
+}
 
+#welcome-schedule-wrapper button:active {
+    position: relative;
+    top: 2px;
+}
 
+#welcome-schedule-wrapper h2{
+    font-size: 3em;
+}

@@ -1,6 +1,7 @@
 var app = angular.module('port', [
     'ngRoute',
-    'port.welcome'
+    'port.welcome',
+    'port.contact'
 ]);
 
 app.config(function($routeProvider) {
