@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <nav>
+                <a href="#/manageBlog">Manage Blog</a>
+                <a href="#/managePortfolio">Manage Portfolio</a>
+                <a href="#/contacts">Contacts/Leads</a>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 new-post-wrapper">
+            <input type="text" placeholder="title">
+            <input type="date" placeholder="date"><br>
+            <textarea placeholder="post"></textarea><br>
+            <button>Post</button><hr>
+
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 blog-search-wrapper">
+            <input type="text" placeholder="search" ng-model="searchText">
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 blog-posts-wrapper">
+            <ul>
+                <li ng-repeat="post in blogPosts | filter: searchText track by $index">
+                    <div class="post-wrapper">
+                        <h2>{{post.title}}</h2>
+                        <p>{{post.date | date}}</p>
+                        <p>{{post.post}}</p>
+                        <button><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

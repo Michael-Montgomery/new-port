@@ -123,11 +123,15 @@ body {
     filter: grayscale(100%);
 }
 
-.dual-div:hover {
+.dual-div:first-child:hover {
+    -webkit-filter: grayscale(20%);
+    filter: grayscale(20%);
+}
+
+.dual-div:last-child:hover {
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
 }
-
 #left-dual-div {
     background-image: url("../images/color-chalk.jpg");
     background-size: cover;
@@ -145,6 +149,7 @@ body {
     width: 100%;
     text-align: center;
     margin-top: 55%;
+    opacity: .8;
 }
 
 .dual-div p {
@@ -155,6 +160,7 @@ body {
     font-size: 5em;
     width: 80%;
     display: none;
+    opacity: .8;
 }
 .welcome-about-wrapper {
     height: 100vh;
@@ -313,3 +319,153 @@ select {
     position: relative;
     top: 2px;
 }
+
+
+/*Blog page styling*/
+
+
+.blog-header, .portfolio-header {
+    height: 80px;
+    -webkit-transition: background-color .7s, opacity .7s;
+    transition: background-color .7s, opacity .7s;
+
+}
+
+.blog-header span, .portfolio-header span {
+    font-size: 2.3em;
+}
+
+.blog-header nav, .portfolio-header nav{
+    line-height: 80px;
+    text-align: center;
+}
+
+.blog-header nav a, .portfolio-header nav a {
+    font-size: 1.9em;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: black;
+}
+.blog-header nav a:first-child , .portfolio-header nav a:first-child {
+    float: left;
+}
+
+.blog-header nav a:hover, .portfolio-header nav a:hover{
+    text-decoration: none;
+}
+
+.blog-toolbox {
+    margin-top: 120px;
+    text-align: center;
+
+}
+
+.blog-toolbox input {
+    width: 60%;
+    font-size: 2.3em;
+    color: white;
+    background-color: black;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+.blog-posts-wrapper ul {
+    text-align: center;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.blog-posts-wrapper ul li {
+    margin-bottom: 30px;
+}
+
+.post-title {
+    font-size: 3.5em;
+}
+
+.post-date {
+    margin-bottom: 30px;
+    color: #909090;
+}
+.post-post {
+    width: 75%;
+    font-size: 2.5em;
+    margin: 0 auto;
+    margin-bottom: 25px;
+
+}
+
+.post-options-list ul{
+    list-style-type: none;
+}
+
+.post-options-list ul li {
+    display: inline;
+}
+
+.blog-posts-wrapper button {
+    font-size: 2em;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    background-color: transparent;
+    border: 2px solid black;
+    outline: none;
+}
+
+.blog-posts-wrapper button:hover {
+    color: white;
+    background-color: black;
+}
+
+.blog-posts-wrapper button:active {
+    position: relative;
+    top: 2px;
+}
+
+.project-wrapper {
+    padding-top: 0;
+}
+
+.projects-wrapper ul {
+    margin-top: 120px;
+    list-style-type: none;
+    text-align: center;
+    padding-left: 0;
+}
+
+.projects-wrapper ul li {
+    border: 1px solid;
+    margin-bottom: 25px;
+    padding: 0;
+}
+
+.project-wrapper {
+    height: 400px;
+    background-size: cover;
+    background-attachment: fixed;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.project-wrapper:hover {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+
+.project-wrapper h2 {
+    font-size: 3em;
+    padding-top: 0;
+    color: white;
+    background-color: black;
+    float: left;
+    margin-top: 200px;
+    width: 50%;
+}
+
+.projects-wrapper p {
+    font-size: 2em;
+    color: white;
+    display: none;
+}
+

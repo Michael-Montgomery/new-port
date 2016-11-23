@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <nav>
+                <a href="#/manageBlog">Manage Blog</a>
+                <a href="#/managePortfolio">Manage Portfolio</a>
+                <a href="#/contacts">Contacts/Leads</a>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 new-project-wrapper">
+            <input type="text" placeholder="company name">
+            <input type="text" placeholder="company description">
+            <input type="text" placeholder="image url">
+            <input type="text" placeholder="link to website">
+            <button>ADD</button>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 portfolio-search-wrapper">
+            <input type="text" placeholder="search" ng-model="searchText">
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 portfolio-jobs-wrapper">
+            <ul>
+                <li ng-repeat="project in portfolio | filter: searchText track by $index">
+                    <div class="manage-portfolio-project-wrapper">
+                        <h2 class="manage-project-title">{{project.title}}</h2>
+                        <button><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

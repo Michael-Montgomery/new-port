@@ -1,1 +1,38 @@
-{{message}}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-xs-12 blog-header navbar-fixed-top">
+            <nav>
+                <a href="#/welcome">M<span>|</span>M</a>
+                <a href="#/portfolio">Portfolio</a>
+                <a href="#/contact">Contact</a>
+                <a href="#/blog">Blog</a>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-xs-12 blog-toolbox">
+            <div id="search-wrapper">
+                <input type="text" placeholder="Search" ng-model="searchText">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-xs-12 blog-posts-wrapper">
+            <ul>
+                <li ng-repeat="post in posts | filter:searchText track by $index">
+                    <hr>
+                    <h2 class="post-title">{{post.title}}</h2>
+                    <p class="post-date">{{post.date | date}}</p><br>
+                    <p class="post-post">{{post.post}}</p>
+                    <ul class="post-options-list">
+                        <li><button ng-click="triggered($index)"><i class="fa fa-share-alt" aria-hidden="true"></i></button></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

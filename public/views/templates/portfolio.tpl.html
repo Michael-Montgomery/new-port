@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-xs-12 portfolio-header navbar-fixed-top">
+            <nav>
+                <a href="#/welcome">M<span>|</span>M</a>
+                <a href="#/portfolio">Portfolio</a>
+                <a href="#/contact">Contact</a>
+                <a href="#/blog">Blog</a>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 projects-wrapper">
+            <ul>
+                <li ng-repeat="project in portfolio track by $index">
+                    <div class="project-wrapper" ng-click="goToUrl($index)" ng-style="{'background-image':'url(' + project.imgUrl + ')'}">
+                        <h2>{{project.title}}</h2>
+                        <p class="project-desc">{{project.description}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
