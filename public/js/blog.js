@@ -1,4 +1,6 @@
-var app = angular.module('port.blog', []);
+var app = angular.module('port.blog', [
+    'request'
+]);
 
 app.config(function($routeProvider) {
     $routeProvider.when('/blog', {
@@ -7,7 +9,7 @@ app.config(function($routeProvider) {
     })
 });
 
-app.controller('blogController', function($scope) {
+app.controller('blogController', function($scope, requestService) {
     $(window).scroll(function() {
         if($(window).scrollTop() === 0) {
             $('.blog-header').css('background-color', 'white');
@@ -25,72 +27,18 @@ app.controller('blogController', function($scope) {
 
 
 
+    $scope.posts = [];
+    $scope.getPosts = function() {
+        requestService.fetchBlog(function(response) {
+          //good func
+            $scope.posts = response.data;
+        }, function(response) {
+            //bad func
+            console.log(response)
+        })
+    };
 
-
-
-
-    $scope.posts = [
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select withdrawal amounts ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select withdrawal amounts ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select withdrawal amounts ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select withdrawal amounts ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select withdrawal amounts angular ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select withdrawal amounts wmtek ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select withdrawal amounts google ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select withdrawal mike amounts ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select apple withdrawal amounts ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select  apple withdrawal amounts ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        }
-    ];
+    $scope.getPosts();
 
     $scope.triggered = function(idx) {
         alert(idx);

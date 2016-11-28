@@ -1,4 +1,6 @@
-var app = angular.module('manage.manageBlog', []);
+var app = angular.module('manage.manageBlog', [
+    'requestService'
+]);
 
 app.config(function($routeProvider) {
     $routeProvider.when('/manageBlog', {
@@ -7,67 +9,39 @@ app.config(function($routeProvider) {
     })
 });
 
-app.controller('manageBlogController', function($scope) {
-    $scope.blogPosts = [
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select withdrawal amounts ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select withdrawal amounts ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select withdrawal amounts ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select withdrawal amounts ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select withdrawal amounts angular ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select withdrawal amounts wmtek ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select withdrawal amounts google ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select withdrawal mike amounts ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select apple withdrawal amounts ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        },
-        {
-            title: 'Sample Title',
-            date: new Date(),
-            post: 'The app also lets people pre-select  apple withdrawal amounts ahead of time. After typing in the pin number,' +
-            ' the user will have 30 seconds to tap their phone against the ATMs NFC-enabled spot to complete the transaction.'
-        }
-    ]
+app.controller('manageBlogController', function($scope, request) {
+    $scope.blogPosts = [];
+    $scope.getBlogPosts = function() {
+        request.fetchCmsblog(function(response) {
+            //goof call
+            $scope.blogPosts = response.data;
+        }, function(response) {
+            //bad call
+            console.log(response)
+        })
+    };
+    $scope.postToBlog = function() {
+        request.postCmsblog({
+            title: $scope.newPostTitle,
+            date: $scope.newPostDate,
+            post: $scope.newPostPost
+        }, function(response) {
+            //good call
+            console.log(response);
+            $scope.getBlogPosts()
+        }, function(response) {
+            //bad call
+            console.log(response);
+        })
+    };
+
+    $scope.deleteBlogPost = function(idx) {
+        request.deleteBlogPost({index: idx}, function(response) {
+            //good call
+            $scope.blogPosts = response;
+        }, function(response) {
+            console.log(response)
+        })
+    }
+    $scope.getBlogPosts();
 });
