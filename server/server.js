@@ -69,6 +69,8 @@ var portfolioDb = [
     }
 ];
 
+mongoose.connect('mongodb://localhost/test')
+
 
 
 
@@ -91,7 +93,7 @@ app.post('/portfolio', function(req, res) {
 });
 
 app.delete('/blog', function(req, res) {
-    blogDb.splice(req.body.index, 1);
+    blogDb.splice(req.params.idx, 1);
     res.send(blogDb)
 });
 

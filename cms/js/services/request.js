@@ -13,8 +13,8 @@ app.service('request', function($http) {
     this.postCmsPortfolio = function(data, succFunc, failFunc) {
         $http.post('http://localhost:8080/portfolio', data).then(succFunc, failFunc)
     };
-    this.deleteBlogPost = function(data, succFn, failFn) {
-        $http.delete('http://localhost:8080/blog', data).then(succFn, failFn)
+    this.deleteBlogPost = function(idx, succFn, failFn) {
+        $http.delete('http://localhost:8080/blog?idx=' + idx).then(succFn, failFn)
     };
     this.deletePortfolioItem = function(data, succFn, failFn) {
         $http.delete('http://localhost:8080/blog', data).then(succFn, failFn);
