@@ -14,11 +14,11 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 new-project-wrapper">
-            <input type="text" placeholder="company name">
-            <input type="text" placeholder="company description">
-            <input type="text" placeholder="image url">
-            <input type="text" placeholder="link to website">
-            <button>ADD</button>
+            <input type="text" placeholder="company name" ng-model="title">
+            <input type="text" placeholder="company description" ng-model="description">
+            <input type="text" placeholder="image url" ng-model="imgUrl">
+            <input type="text" placeholder="link to website" ng-model="url">
+            <button ng-click="postToPortfolio()">ADD</button>
         </div>
     </div>
 </div>
@@ -39,7 +39,7 @@
                 <li ng-repeat="project in portfolio | filter: searchText track by $index">
                     <div class="manage-portfolio-project-wrapper">
                         <h2 class="manage-project-title">{{project.title}}</h2>
-                        <button><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        <button ng-click="deleteProject($index)"><i class="fa fa-trash" aria-hidden="true"></i></button>
                     </div>
                 </li>
             </ul>

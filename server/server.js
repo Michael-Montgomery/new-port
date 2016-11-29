@@ -9,6 +9,9 @@ var bcrypt = require('bcrypt');
 
 
 
+
+
+
 var app = express();
 
 
@@ -20,82 +23,135 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-var blogDb = [
-    {
-        title: 'some title',
-        date: new Date(),
-        post: 'something about mary'
-    },
-    {
-        title: 'some title',
-        date: new Date(),
-        post: 'something about jane'
-    },
-    {
-        title: 'some title',
-        date: new Date(),
-        post: 'something about joe'
-    },
-    {
-        title: 'some title',
-        date: new Date(),
-        post: 'something about paul'
-    },
-    {
-        title: 'some title',
-        date: new Date(),
-        post: 'something about lisa'
-    }
-];
-
-var portfolioDb = [
-    {
-        title: 'Apple',
-        description: 'They sell computers',
-        imgUrl: 'http://www.pcmag.com/media/images/501651-apple-macbook-2016.jpg?thumb=y&width=740&height=416',
-        url: 'https://www.apple.com'
-    },
-    {
-        title: 'microsoft',
-        description: 'more computers',
-        imgUrl: 'https://tctechcrunch2011.files.wordpress.com/2016/07/microsoft.jpg?w=738',
-        url: 'https://www.microsoft.com'
-    },
-    {
-        title: 'Apple',
-        description: 'They sell computers',
-        imgUrl: 'http://www.pcmag.com/media/images/501651-apple-macbook-2016.jpg?thumb=y&width=740&height=416',
-        url: 'https://www.apple.com'
-    }
-];
-
-mongoose.connect('mongodb://localhost/test')
 
 
 
 
-app.get('/blog', function(req, res) {
-    res.status(200).send(blogDb)
+mongoose.connect('mongodb://localhost/portfolio');
+
+var blogPostSchema = mongoose.Schema({
+    title: String,
+    date: Date,
+    post: String
 });
 
-app.get('/portfolio', function(req, res) {
-    res.status(200).send(portfolioDb)
+var Post = mongoose.model('blogPosts', blogPostSchema);
+
+
+
+var portfolioSchema = mongoose.Schema({
+    title: String,
+    description: String,
+    imgUrl: String,
+    url: String
+});
+
+var Project = mongoose.model('portfolioProjects', portfolioSchema);
+
+
+var userSchema = mongoose.Schema({
+    email: String,
+    password: String,
+    firstName: String,
+    lastName: String
+});
+
+var User = mongoose.model('users', userSchema);
+
+
+
+
+// Handling requests to blog URL
+
+app.get('/blog', function(req, res) {
+    Post.find(function(err, blogs) {
+        if(err) {
+            res.status(500).send()
+        }
+        else {
+            res.send(blogs)
+        }
+    })
+});
+
+app.delete('/blog/:id', function(req, res) {
+   var passedId = req.params.id;
+    Post.findOneAndRemove({_id: passedId}, function(err, removed) {
+        if(err) {
+            console.log(err);
+            res.status(500).send
+        }
+        console.log(removed)
+        return res.status(200).send({message: 'deleted!'})
+    })
+
 });
 
 app.post('/blog', function(req, res) {
-    blogDb.push(req.body);
+    var title = req.body.title;
+    var date = req.body.date;
+    var post = req.body.post;
 
+    var newBlogPost = new Post({
+            title: title,
+            date: date,
+            post: post
+        });
+    newBlogPost.save(function(err, savedItem) {
+        if(err) {
+            res.status(500).send()
+        } else {
+            res.status(200).send()
+        }
+    })
+});
+
+
+// Handling requests to portfolio
+
+
+app.get('/portfolio', function(req, res) {
+    Project.find(function(err, projects) {
+        if(err) {
+            res.status(500).send()
+        } else {
+            res.send(projects)
+        }
+    })
 });
 
 app.post('/portfolio', function(req, res) {
-    portfolioDb.push(req.body);
+    var title = req.body.title;
+    var description = req.body.description;
+    var imgUrl = req.body.imgUrl;
+    var url = req.body.url;
 
+    var newProject = new Post({
+        title: title,
+        description: description,
+        imgUrl: imgUrl,
+        url: url
+    });
+    newProject.save(function(err, savedItem) {
+        if(err) {
+            res.status(500).send()
+        } else {
+            console.log(savedItem)
+            res.status(200).send()
+        }
+    })
 });
 
-app.delete('/blog', function(req, res) {
-    blogDb.splice(req.params.idx, 1);
-    res.send(blogDb)
+app.delete('/portfolio/:id', function(req, res) {
+    var passedId = req.params.id;
+    Project.findOneAndRemove({_id: passedId}, function (err, removed) {
+        if (err) {
+            console.log(err);
+            res.status(500).send
+        }
+        console.log(removed);
+        return res.status(200).send({message: 'deleted!'})
+    })
 });
-
 
 app.listen(8080);

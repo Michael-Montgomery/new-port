@@ -13,21 +13,21 @@ app.controller('manageBlogController', function($scope, request) {
     $scope.blogPosts = [];
     $scope.getBlogPosts = function() {
         request.fetchCmsblog(function(response) {
-            //goof call
+            //good call
             $scope.blogPosts = response.data;
+            console.log(response.data)
         }, function(response) {
             //bad call
             console.log(response)
         })
     };
     $scope.postToBlog = function() {
-        request.postCmsblog({
+        request.postCmsBlog({
             title: $scope.newPostTitle,
             date: $scope.newPostDate,
             post: $scope.newPostPost
         }, function(response) {
             //good call
-            console.log(response);
             $scope.getBlogPosts()
         }, function(response) {
             //bad call
@@ -36,12 +36,12 @@ app.controller('manageBlogController', function($scope, request) {
     };
 
     $scope.deleteBlogPost = function(idx) {
-        request.deleteBlogPost({index: idx}, function(response) {
+        request.deleteBlogPost($scope.blogPosts[idx], function() {
             //good call
-            $scope.blogPosts = response;
+            $scope.getBlogPosts();
         }, function(response) {
             console.log(response)
         })
-    }
+    };
     $scope.getBlogPosts();
 });

@@ -23,17 +23,27 @@ app.controller('managePortfolioController', function($scope, request) {
     };
 
     $scope.postToPortfolio = function() {
+        alert('hit!')
         request.postCmsblog({
-            title: $scope.newPostTitle,
-            date: $scope.newPostDate,
-            post: $scope.newPostPost
+            title: $scope.title,
+            description: $scope.description,
+            imgUrl: $scope.imgUrl,
+            url: $scope.url
         }, function(response) {
             //good call
-            console.log(response);
-            $scope.getBlogPosts()
+            $scope.getProjects()
         }, function(response) {
             //bad call
             console.log(response);
+        })
+    }
+
+    $scope.deleteProject = function(idx) {
+        request.deletePortfolioItem($scope.portfolio[idx], function() {
+            //good
+            $scope.getProjects()
+        }, function() {
+            //bad call
         })
     }
 
