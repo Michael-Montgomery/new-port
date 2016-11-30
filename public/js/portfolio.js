@@ -10,7 +10,7 @@ app.config(function($routeProvider) {
 });
 
 app.controller('portfolioController', function($scope, requestService) {
-
+    document.title = 'Michael Montgomery | Portfolio';
     $(window).scroll(function() {
         if($(window).scrollTop() === 0) {
             $('.portfolio-header').css('background-color', 'white');

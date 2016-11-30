@@ -23,17 +23,18 @@ app.controller('managePortfolioController', function($scope, request) {
     };
 
     $scope.postToPortfolio = function() {
-        alert('hit!')
-        request.postCmsblog({
+        request.postCmsPortfolio({
             title: $scope.title,
             description: $scope.description,
             imgUrl: $scope.imgUrl,
             url: $scope.url
         }, function(response) {
             //good call
+            console.log('good call tripped')
             $scope.getProjects()
         }, function(response) {
             //bad call
+            console.log('bad call tripped')
             console.log(response);
         })
     }

@@ -8,6 +8,7 @@ app.config(function($routeProvider) {
 });
 
 app.controller('welcomeController', function($scope) {
+    document.title = 'Michael Montgomery';
     $(window).scroll(function() {
         if($(window).scrollTop() === 0) {
             $('.welcome-header').css('background-color', 'black');

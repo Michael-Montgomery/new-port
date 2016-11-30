@@ -10,6 +10,7 @@ app.config(function($routeProvider) {
 });
 
 app.controller('blogController', function($scope, requestService) {
+    document.title = 'Michael Montgomery | Blog';
     $(window).scroll(function() {
         if($(window).scrollTop() === 0) {
             $('.blog-header').css('background-color', 'white');

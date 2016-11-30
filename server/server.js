@@ -12,6 +12,7 @@ var bcrypt = require('bcrypt');
 
 
 
+
 var app = express();
 
 
@@ -126,7 +127,7 @@ app.post('/portfolio', function(req, res) {
     var imgUrl = req.body.imgUrl;
     var url = req.body.url;
 
-    var newProject = new Post({
+    var newProject = new Project({
         title: title,
         description: description,
         imgUrl: imgUrl,
@@ -136,7 +137,7 @@ app.post('/portfolio', function(req, res) {
         if(err) {
             res.status(500).send()
         } else {
-            console.log(savedItem)
+            console.log(savedItem);
             res.status(200).send()
         }
     })

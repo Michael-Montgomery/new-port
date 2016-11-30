@@ -8,5 +8,5 @@ app.config(function($routeProvider) {
 });
 
 app.controller('contactController', function($scope) {
-    $scope.message = 'contact'
+    document.title = 'Michael Montgomery | Contact';
 })
