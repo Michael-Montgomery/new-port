@@ -82,8 +82,14 @@ app.delete('/blog/:id', function(req, res) {
             console.log(err);
             res.status(500).send
         }
-        console.log(removed)
-        return res.status(200).send({message: 'deleted!'})
+        Post.find(function(err, blogs) {
+            if(err) {
+                res.status(500).send()
+            }
+            else {
+                res.send(blogs)
+            }
+        })
     })
 
 });

@@ -36,9 +36,9 @@ app.controller('manageBlogController', function($scope, request) {
     };
 
     $scope.deleteBlogPost = function(idx) {
-        request.deleteBlogPost($scope.blogPosts[idx], function() {
+        request.deleteBlogPost($scope.blogPosts[idx], function(response) {
             //good call
-            $scope.getBlogPosts();
+            $scope.blogPosts = response.data;
         }, function(response) {
             console.log(response)
         })
