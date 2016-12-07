@@ -154,10 +154,16 @@ app.delete('/portfolio/:id', function(req, res) {
     Project.findOneAndRemove({_id: passedId}, function (err, removed) {
         if (err) {
             console.log(err);
-            res.status(500).send
+            res.status(500).send(err)
         }
-        console.log(removed);
-        return res.status(200).send({message: 'deleted!'})
+        Project.find(function(err, projects) {
+            if(err) {
+                res.status(500).send()
+            } else {
+                console.log(removed.title + ' was removed.')
+                res.send(projects)
+            }
+        })
     })
 });
 

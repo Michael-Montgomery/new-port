@@ -17,6 +17,6 @@ app.service('request', function($http) {
         $http.delete('http://localhost:8080/blog/' + data._id, data).then(succFn, failFn)
     };
     this.deletePortfolioItem = function(data, succFn, failFn) {
-        $http.delete('http://localhost:8080/blog/' + data._id, data).then(succFn, failFn);
+        $http.delete('http://localhost:8080/portfolio/' + data._id, data).then(succFn, failFn);
     }
 })

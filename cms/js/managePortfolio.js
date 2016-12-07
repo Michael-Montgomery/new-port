@@ -40,11 +40,10 @@ app.controller('managePortfolioController', function($scope, request) {
     }
 
     $scope.deleteProject = function(idx) {
-        request.deletePortfolioItem($scope.portfolio[idx], function() {
-            //good
-            $scope.getProjects()
-        }, function() {
-            //bad call
+        request.deletePortfolioItem($scope.portfolio[idx], function(response) {
+            $scope.portfolio = response.data;
+        }, function(response) {
+            console.log(response)
         })
     }
 

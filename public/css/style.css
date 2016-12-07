@@ -425,6 +425,7 @@ select {
 
 .project-wrapper {
     padding-top: 0;
+    background-attachment: fixed;
 }
 
 .projects-wrapper ul {
