@@ -11,6 +11,7 @@ app.config(function($routeProvider) {
 
 app.controller('portfolioController', function($scope, requestService) {
     document.title = 'Michael Montgomery | Portfolio';
+    var menuTicker = 2;
     $(window).scroll(function() {
         if($(window).scrollTop() === 0) {
             $('.portfolio-header').css('background-color', 'white');
@@ -38,6 +39,18 @@ app.controller('portfolioController', function($scope, requestService) {
             console.log(response);
         })
     };
+
+    $scope.showMenu = function() {
+        if(menuTicker % 2 === 0) {
+            $('#portfolio-footer').css('height', '500px');
+            menuTicker++;
+            $('.portfolio-header nav a:last-child').html('<i class="fa fa-times" aria-hidden="true"></i>')
+        } else {
+            $('#portfolio-footer').css('height', '0');
+            menuTicker++;
+            $('.portfolio-header nav a:last-child').html('<i class="fa fa-bars" aria-hidden="true"></i>')
+        }
+    }
 
     $scope.updatePortfolio();
 

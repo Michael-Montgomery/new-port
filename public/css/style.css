@@ -45,6 +45,10 @@ body {
     float: left;
 }
 
+.welcome-header nav a:last-child, .portfolio-header nav a:last-child, .contact-header nav a:last-child, .blog-header nav a:last-child {
+    display: none;
+}
+
 
 .welcome-wrapper-one {
     height: 100vh;
@@ -411,6 +415,7 @@ select {
     background-color: transparent;
     border: 2px solid black;
     outline: none;
+    display: none;
 }
 
 .blog-posts-wrapper button:hover {
@@ -469,4 +474,194 @@ select {
     color: white;
     display: none;
 }
+
+
+#welcome-footer, #portfolio-footer, #contact-footer, #blog-footer {
+    height: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*******************     CSS Media Queries     ************************/
+
+
+
+
+
+@media (max-width: 600px) {
+    .welcome-wrapper-one {
+        background-position-x: 85%;
+    }
+
+    #welcome-name-wrapper {
+        display: none;
+    }
+
+    .welcome-about-wrapper {
+        background-position-x: 90%;
+    }
+
+    .welcome-wrapper-two {
+        display: none;
+    }
+
+    .welcome-header nav a:nth-child(2),.welcome-header nav a:nth-child(3),.welcome-header nav a:nth-child(4),
+    .portfolio-header nav a:nth-child(2), .portfolio-header nav a:nth-child(3), .portfolio-header nav a:nth-child(4),
+    .contact-header nav a:nth-child(2), .contact-header nav a:nth-child(3), .contact-header nav a:nth-child(4),
+    .blog-header nav a:nth-child(2), .blog-header nav a:nth-child(3), .blog-header nav a:nth-child(4)
+
+    {
+        display: none;
+    }
+
+    .welcome-header nav a:last-child, .portfolio-header nav a:last-child, .contact-header nav a:last-child, .blog-header nav a:last-child {
+        float: right;
+        font-weight: lighter;
+        font-size: 2.5em;
+        display: inline;
+    }
+
+    #welcome-footer, #portfolio-footer, #contact-footer, #blog-footer {
+        height: 0;
+        -webkit-transition: height .7s;
+        transition: height .7s;
+        background-color: black;
+    }
+
+    #welcome-footer h2, #portfolio-footer h2, #contact-footer h2, #blog-footer h2 {
+        text-align: center;
+        color: white;
+        opacity: .6;
+        font-size: 2.6em;
+    }
+
+    #welcome-footer p, #portfolio-footer p, #contact-footer p, #blog-footer p{
+        text-align: center;
+        color: white;
+        font-size: .8em;
+        opacity: 1.2;
+        margin-bottom: 30px;
+    }
+
+    #footer-menu-list, #port-menu-list, #contact-menu-list, #blog-menu-list {
+        text-align: center;
+        padding-left: 0;
+        list-style-type: none;
+    }
+
+    #footer-menu-list li, #port-menu-list li, #contact-menu-list li, #blog-menu-list li{
+        margin-bottom: 20px;
+        border-top: 1px solid white;
+        padding-top: 5%;
+    }
+
+
+
+
+    #footer-menu-list li a, #port-menu-list li a, #contact-menu-list li a, #blog-menu-list li a {
+        color: white;
+        text-decoration: none;
+        font-size: 2.3em;
+    }
+
+    #footer-social-list, #port-social-list, #contact-social-list, #blog-social-list{
+        text-align: center;
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    #footer-social-list li, #port-social-list li, #contact-social-list li, #blog-social-list li {
+        display: inline;
+        margin-left: 15px;
+
+    }
+
+    #footer-social-list li a, #port-social-list li a, #contact-social-list li a, #blog-social-list li a{
+        text-decoration: none;
+        color: white;
+        opacity: .4;
+        font-size: 2em;
+    }
+
+    /*Blog Page styling*/
+
+
+    .blog-toolbox input {
+        width: 90%;
+    }
+
+    .post-title {
+        font-size: 2.8em;
+    }
+
+    .post-date {
+
+    }
+
+    .post-post {
+        font-size: 1.5em;
+        width: 90%;
+    }
+
+
+
+    /*Contact Page Styling*/
+
+    .contact-picture-wrapper {
+        padding: 0;
+    }
+
+    #contact-form-wrapper {
+        width: 100vw;
+        height: auto;
+    }
+
+    .half-pipe, .full-pipe {
+        width: 98%;
+        text-align: center;
+    }
+
+
+    /*Portfolio page styling*/
+
+    .project-wrapper {
+        width: 100%;
+
+    }
+
+    .project-wrapper h2 {
+        width: 100%;
+    }
+
+    .projects-wrapper {
+        padding: 0;
+    }
+
+    .projects-wrapper ul li {
+        border: none;
+    }
+
+}
+
+
 

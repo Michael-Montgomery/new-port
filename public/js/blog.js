@@ -24,7 +24,20 @@ app.controller('blogController', function($scope, requestService) {
         }).mouseout(function() {
             $('.blog-header').css('opacity', '.8')
         })
-    })
+    });
+
+    var menuTicker = 2;
+    $scope.showMenu = function() {
+        if(menuTicker % 2 === 0) {
+            $('#blog-footer').css('height', '500px');
+            menuTicker++;
+            $('.blog-header nav a:last-child').html('<i class="fa fa-times" aria-hidden="true"></i>')
+        } else {
+            $('#blog-footer').css('height', '0');
+            menuTicker++;
+            $('.blog-header nav a:last-child').html('<i class="fa fa-bars" aria-hidden="true"></i>')
+        }
+    }
 
 
 
