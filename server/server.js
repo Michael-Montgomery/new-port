@@ -6,6 +6,8 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt');
+var Sendgrid = require("sendgrid-web");
+// var sendgrid = require("sendgrid")("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");
 
 
 
@@ -59,6 +61,32 @@ var userSchema = mongoose.Schema({
 
 var User = mongoose.model('users', userSchema);
 
+var leadSchema = mongoose.Schema({
+    date: Date,
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
+    },
+    company: String,
+    phone: String,
+    email: {
+
+    },
+    website: String,
+    message: {
+        type: String,
+        required: true
+    }
+});
+
+
+
+var leads = mongoose.model('leads', leadSchema);
+
 
 
 
@@ -80,7 +108,7 @@ app.delete('/blog/:id', function(req, res) {
     Post.findOneAndRemove({_id: passedId}, function(err, removed) {
         if(err) {
             console.log(err);
-            res.status(500).send
+            res.status(500).send()
         }
         Post.find(function(err, blogs) {
             if(err) {
@@ -160,11 +188,58 @@ app.delete('/portfolio/:id', function(req, res) {
             if(err) {
                 res.status(500).send()
             } else {
-                console.log(removed.title + ' was removed.')
+                console.log(removed.title + ' was removed.');
                 res.send(projects)
             }
         })
     })
 });
+
+// Handling requests to contact API
+
+
+
+app.get('/contact', function(req, res) {
+    leads.find(function(err, leadsList) {
+        if(err) {
+            res.status(500).send(err);
+        } else {
+            res.status(200).send(leadsList)
+        }
+    })
+});
+
+app.post('/contact', function(req, res) {
+
+
+    var newLead = new leads({
+        date: req.body.date,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        company: req.body.company,
+        phone: req.body.phone,
+        email: req.body.email,
+        website: req.body.website,
+        message: req.body.message
+    });
+    newLead.save(function(err, savedItem) {
+        if(err) {
+            res.status(500).send(err);
+        } else {
+            res.status(200).send()
+        }
+    })
+
+
+});
+
+
+
+// Admin route
+
+app.get('/sesame', function(req, res) {
+    res.sendFile('../cms/views/index.html');
+})
+
 
 app.listen(8080);

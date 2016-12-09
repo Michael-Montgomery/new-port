@@ -26,6 +26,8 @@
     "mongodb": "^2.2.11",
     "mongoose": "^4.7.0",
     "nodemailer": "^2.6.4",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "sendgrid": "^4.7.1",
+    "sendgrid-web": "0.0.5"
   }
 }

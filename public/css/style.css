@@ -282,6 +282,19 @@ body {
     opacity: .9;
 }
 
+.thanks {
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    margin-top: 20%;
+}
+
+.tiny-thanks {
+    color: white;
+    text-align: center;
+
+}
+
 .half-pipe {
     width: 40%;
     margin-bottom: 30px;

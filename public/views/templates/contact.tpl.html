@@ -15,12 +15,12 @@
     <div class="row">
         <div class="col-md-12 col-xs-12 contact-picture-wrapper">
             <div id="contact-form-wrapper">
-                <input type="text" class="half-pipe" placeholder="First Name" ng-model="firstName">
-                <input type="text" class="half-pipe" placeholder="Last Name" ng-model="lastName"><br>
-                <input type="text" class="full-pipe" placeholder="Company"><br>
-                <input type="tel" class="half-pipe" placeholder="Phone">
-                <input type="email" class="half-pipe" placeholder="Email"><br>
-                <select class="full-pipe">
+                <input type="text" class="half-pipe" placeholder="First Name" id="firstName">
+                <input type="text" class="half-pipe" placeholder="Last Name" id="lastName"><br>
+                <input type="text" class="full-pipe" placeholder="Company" id="co"><br>
+                <input type="tel" class="half-pipe" placeholder="Phone" id="phone">
+                <input type="email" class="half-pipe" placeholder="Email" id="email"><br>
+                <select id="contact-dropdown" class="full-pipe">
                     <option value="default">Please select a primary contact reason.</option>
                     <optgroup label="Services">
                         <option value="design">Design and UI consulting</option>
@@ -31,9 +31,9 @@
                         <option value="edu">Teaching/Education</option>
                     </optgroup>
                 </select><br>
-                <input type="url" class="full-pipe" placeholder="Current Website's URL (if applicable)">
-                <textarea  class="full-pipe" placeholder="Blah blah blah..."></textarea><br>
-                <button><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                <input type="url" class="full-pipe" placeholder="Current Website's URL (if applicable)" id="url">
+                <textarea  class="full-pipe" placeholder="Your message to Michael Montgomery:" id="message"></textarea><br>
+                <button ng-click="sendContact()"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
             </div>
         </div>
     </div>

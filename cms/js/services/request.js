@@ -7,6 +7,9 @@ app.service('request', function($http) {
     this.fetchCmsPortfolio = function(succFunc, failFunc) {
         $http.get('http://localhost:8080/portfolio').then(succFunc, failFunc)
     };
+    this.fetchLeads = function(succFunc, failFunc) {
+        $http.get('http://localhost:8080/contact').then(succFunc, failFunc)
+    }
     this.postCmsBlog = function(data, succFunc, failFunc) {
         $http.post('http://localhost:8080/blog', data).then(succFunc, failFunc)
     };
