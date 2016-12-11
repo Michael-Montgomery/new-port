@@ -6,8 +6,6 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt');
-var Sendgrid = require("sendgrid-web");
-// var sendgrid = require("sendgrid")("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");
 
 
 
