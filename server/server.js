@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt');
+var fs = require('fs');
 
 
 
@@ -235,9 +236,6 @@ app.post('/contact', function(req, res) {
 
 // Admin route
 
-app.get('/sesame', function(req, res) {
-    res.sendFile('../cms/views/index.html');
-})
 
 
 app.listen(8080);

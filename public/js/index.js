@@ -3,7 +3,11 @@ var app = angular.module('port', [
     'port.welcome',
     'port.contact',
     'port.blog',
-    'port.portfolio'
+    'port.portfolio',
+    'port.contacts',
+    'port.login',
+    'port.manageBlog',
+    'port.managePortfolio'
 ]);
 
 app.config(function($routeProvider) {

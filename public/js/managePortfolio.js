@@ -1,5 +1,5 @@
-var app = angular.module('manage.managePortfolio', [
-    'requestService'
+var app = angular.module('port.managePortfolio', [
+    'request'
 ]);
 
 app.config(function($routeProvider) {
@@ -9,11 +9,11 @@ app.config(function($routeProvider) {
     })
 });
 
-app.controller('managePortfolioController', function($scope, request) {
+app.controller('managePortfolioController', function($scope, requestService) {
     $scope.portfolio = [];
 
     $scope.getProjects = function() {
-        request.fetchCmsPortfolio(function(response) {
+        requestService.fetchPortfolio(function(response) {
             //good call
             $scope.portfolio = response.data;
         }, function(response) {
@@ -23,7 +23,7 @@ app.controller('managePortfolioController', function($scope, request) {
     };
 
     $scope.postToPortfolio = function() {
-        request.postCmsPortfolio({
+        requestService.postCmsPortfolio({
             title: $scope.title,
             description: $scope.description,
             imgUrl: $scope.imgUrl,
@@ -40,7 +40,7 @@ app.controller('managePortfolioController', function($scope, request) {
     }
 
     $scope.deleteProject = function(idx) {
-        request.deletePortfolioItem($scope.portfolio[idx], function(response) {
+        requestService.deletePortfolioItem($scope.portfolio[idx], function(response) {
             $scope.portfolio = response.data;
         }, function(response) {
             console.log(response)

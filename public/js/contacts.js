@@ -1,5 +1,5 @@
-var app = angular.module('manage.contacts', [
-    'requestService'
+var app = angular.module('port.contacts', [
+    'request'
 ]);
 
 app.config(function($routeProvider) {
@@ -9,11 +9,11 @@ app.config(function($routeProvider) {
     })
 });
 
-app.controller('contactsController', function($scope, request) {
+app.controller('contactsController', function($scope, requestService) {
     $scope.contacts = [];
 
     $scope.getLeads = function() {
-        request.fetchLeads(function(response) {
+        requestService.fetchLeads(function(response) {
             $scope.contacts = response.data;
         }, function(response) {
             console.log(response)
