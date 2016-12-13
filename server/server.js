@@ -87,6 +87,14 @@ var leadSchema = mongoose.Schema({
 var leads = mongoose.model('leads', leadSchema);
 
 
+var adminSchema = mongoose.Schema({
+    username: String,
+    pass: String
+});
+
+var admin = mongoose.model('admins', adminSchema);
+
+
 
 
 // Handling requests to blog URL
@@ -236,6 +244,19 @@ app.post('/contact', function(req, res) {
 
 // Admin route
 
-
+app.post('/admins', function(req, res) {
+    admin.findOne({username: req.body.username}, function(err, found) {
+        if(err) {
+            res.status(404).send({message: 'User not found'})
+        } else {
+            if(req.body.password === found.pass) {
+                res.status(200).send()
+            }
+        }
+    })
+})
 
 app.listen(8080);
+
+
+

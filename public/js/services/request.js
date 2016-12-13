@@ -24,6 +24,9 @@ app.service('requestService', function($http) {
     };
     this.deletePortfolioItem = function(data, succFn, failFn) {
         $http.delete('http://localhost:8080/portfolio/' + data._id, data).then(succFn, failFn);
+    };
+    this.checkPass = function(data, succFunc, failFunc) {
+        $http.post('http://localhost:8080/admins/', data).then(succFunc, failFunc);
     }
 });
 
