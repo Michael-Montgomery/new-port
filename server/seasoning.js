@@ -1,1 +1,3 @@
-var salt = 'a movie that nobody saw'
+var phone = {
+    make: 'iPhone'
+}
