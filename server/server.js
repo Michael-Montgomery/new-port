@@ -254,7 +254,7 @@ app.post('/admins', function(req, res) {
             }
         }
     })
-})
+});
 
 app.listen(8080);
 
