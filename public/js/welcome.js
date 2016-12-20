@@ -2,7 +2,7 @@ var app = angular.module('port.welcome', []);
 
 app.config(function($routeProvider) {
     $routeProvider.when('/welcome', {
-        templateUrl: 'templates/welcome.tpl.html',
+        templateUrl: 'public/views/templates/welcome.tpl.html',
         controller: 'welcomeController'
     })
 });

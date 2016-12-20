@@ -4,7 +4,7 @@ var app = angular.module('port.manageBlog', [
 
 app.config(function($routeProvider) {
     $routeProvider.when('/manageBlog', {
-        templateUrl: 'templates/manageBlog.tpl.html',
+        templateUrl: 'public/views/templates/manageBlog.tpl.html',
         controller: 'manageBlogController'
     })
 });

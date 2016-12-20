@@ -4,7 +4,7 @@ var app = angular.module('port.login', [
 
 app.config(function($routeProvider) {
     $routeProvider.when('/sesame', {
-        templateUrl: 'templates/login.tpl.html',
+        templateUrl: 'public/views/templates/login.tpl.html',
         controller: 'loginController'
     })
 });

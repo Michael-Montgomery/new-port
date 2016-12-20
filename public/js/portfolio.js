@@ -4,7 +4,7 @@ var app = angular.module('port.portfolio', [
 
 app.config(function($routeProvider) {
     $routeProvider.when('/portfolio', {
-        templateUrl: 'templates/portfolio.tpl.html',
+        templateUrl: 'public/views/templates/portfolio.tpl.html',
         controller: 'portfolioController'
     })
 });

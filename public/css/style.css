@@ -274,7 +274,7 @@ body {
     width: 85%;
     height: 80%;
     text-align: center;
-    border: 1px dotted;
+    border: .5px solid white;
     margin: 0 auto;
     margin-top: 120px;
     padding-top: 45px;

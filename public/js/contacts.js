@@ -4,7 +4,7 @@ var app = angular.module('port.contacts', [
 
 app.config(function($routeProvider) {
     $routeProvider.when('/contacts', {
-        templateUrl: 'templates/contacts.tpl.html',
+        templateUrl: 'public/views/templates/contacts.tpl.html',
         controller: 'contactsController'
     })
 });
