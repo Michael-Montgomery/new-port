@@ -4,8 +4,6 @@ var cors = require('cors');
 var ejs = require('ejs');
 var bodyParser = require('body-parser');
 var path = require('path');
-var jwt = require('jsonwebtoken');
-var bcrypt = require('bcrypt');
 var fs = require('fs');
 
 
