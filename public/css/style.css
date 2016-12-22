@@ -282,6 +282,10 @@ body {
     opacity: .9;
 }
 
+#contact-form-wrapper form {
+    margin-top: 5vh;
+}
+
 .thanks {
     color: white;
     text-align: center;
@@ -327,6 +331,10 @@ select {
     outline: none;
     -webkit-transition: background-color .7s;
     transition: background-color .7s;
+}
+
+#contact-form-wrapper textarea {
+
 }
 
 #contact-form-wrapper button:hover {
@@ -539,6 +547,10 @@ select {
         display: none;
     }
 
+    #welcome-schedule-wrapper h2 {
+        font-size: 2.2em;
+    }
+
     .welcome-header nav a:nth-child(2),.welcome-header nav a:nth-child(3),.welcome-header nav a:nth-child(4),
     .portfolio-header nav a:nth-child(2), .portfolio-header nav a:nth-child(3), .portfolio-header nav a:nth-child(4),
     .contact-header nav a:nth-child(2), .contact-header nav a:nth-child(3), .contact-header nav a:nth-child(4),
@@ -572,7 +584,7 @@ select {
     #welcome-footer p, #portfolio-footer p, #contact-footer p, #blog-footer p{
         text-align: center;
         color: white;
-        font-size: .8em;
+        font-size: 1.1em;
         opacity: 1.2;
         margin-bottom: 30px;
     }
