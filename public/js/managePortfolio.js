@@ -37,7 +37,7 @@ app.controller('managePortfolioController', function($scope, requestService) {
             console.log('bad call tripped')
             console.log(response);
         })
-    }
+    };
 
     $scope.deleteProject = function(idx) {
         requestService.deletePortfolioItem($scope.portfolio[idx], function(response) {
@@ -45,7 +45,7 @@ app.controller('managePortfolioController', function($scope, requestService) {
         }, function(response) {
             console.log(response)
         })
-    }
+    };
 
     $scope.getProjects();
 });
