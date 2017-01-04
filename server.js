@@ -93,7 +93,9 @@ var adminSchema = mongoose.Schema({
 var admin = mongoose.model('admins', adminSchema);
 
 
-
+app.get('/', function(req, res) {
+    res.render('index.html')
+})
 
 // Handling requests to blog URL
 
